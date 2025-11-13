@@ -7,5 +7,5 @@ CREATE TABLE users
     phone      VARCHAR(255),
     password   VARCHAR(510),
     is_active  tinyint(1),
-    is_admin   tinyint(1),
+    is_admin   tinyint(1)
 );

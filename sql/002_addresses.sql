@@ -7,5 +7,5 @@ CREATE TABLE addresses
     house_number INT,
     city         VARCHAR(255),
     type         tinyint(1),
-    FOREIGN KEY (user_id) REFERENCES user (id)
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
