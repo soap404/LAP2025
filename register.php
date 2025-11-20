@@ -2,6 +2,12 @@
 require_once 'Templates/header.php';
 
 use Controller\AuthController;
+use Middleware\IsUser;
+
+if (IsUser::handle()) {
+    header('Location: index.php');
+    exit();
+}
 
 $errors = [];
 

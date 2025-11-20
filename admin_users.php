@@ -2,6 +2,12 @@
 require_once 'Templates/header.php';
 
 use Controller\UserController;
+use Middleware\IsAdmin;
+
+if (!IsAdmin::handle()) {
+    header('Location: index.php');
+    exit();
+}
 
 $users = UserController::index();
 

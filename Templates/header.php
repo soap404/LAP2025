@@ -2,6 +2,8 @@
 require_once 'D:/OneDrive/programieng/httdocs/lap2025/vendor/autoload.php';
 
 use Controller\AuthController;
+use Middleware\IsAdmin;
+use Middleware\IsUser;
 
 if (isset($_POST['logout'])) {
     AuthController::logout();
@@ -31,20 +33,30 @@ if (isset($_POST['logout'])) {
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.php">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <form action="" method="POST">
-                        <button class="nav-link" name="logout">Logout</button>
-                    </form>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin.php">Admin</a>
-                </li>
+
+                <?php if (!IsUser::handle()): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (IsUser::handle()): ?>
+                    <li class="nav-item">
+                        <form action="" method="POST">
+                            <button class="nav-link" name="logout">Logout</button>
+                        </form>
+                    </li>
+                <?php endif; ?>
+
+
+                <?php if (IsAdmin::handle()): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.php">Admin</a>
+                    </li>
+                <?php endif; ?>
 
             </ul>
         </div>

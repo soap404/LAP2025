@@ -5,7 +5,8 @@
         "psr-4": {
             "Controller\\": "Controller/",
             "Model\\": "Model/",
-            "Requests\\": "Requests/"
+            "Requests\\": "Requests/",
+            "Middleware\\": "Middleware/"
         }
     },
     "authors": [
