@@ -49,6 +49,15 @@ class User extends DB
 
     }
 
+    public function findByEmail(string $email): array|bool
+    {
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function show(int $id): array
     {
         $sql = "SELECT * FROM users WHERE id = :id";

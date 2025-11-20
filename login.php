@@ -5,17 +5,19 @@ use Controller\AuthController;
 
 $errors = [];
 
-if (isset($_POST['register'])) {
-    $result = AuthController::register($_POST);
+if (isset($_POST['login'])) {
+    $result = AuthController::login($_POST);
     if ($result === true) {
-        header('Location: login.php');
-        exit;
+        header('Location: index.php');
+        exit();
     } else {
         $errors = $result;
     }
 }
 
+
 ?>
+
     <div>
         <?php foreach ($errors as $error) : ?>
             <div class="alert alert-danger" role="alert">
@@ -26,20 +28,6 @@ if (isset($_POST['register'])) {
 
 
     <form action="" method="POST">
-        <div class="mb-3">
-            <label for="first_name" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="first_name" name="first_name">
-        </div>
-
-        <div class="mb-3">
-            <label for="last_name" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="last_name" name="last_name">
-        </div>
-
-        <div class="mb-3">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="phone" name="phone">
-        </div>
 
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
@@ -51,7 +39,7 @@ if (isset($_POST['register'])) {
             <input type="password" class="form-control" id="password" name="password">
         </div>
 
-        <button type="submit" class="btn btn-primary" name="register">Register</button>
+        <button type="submit" class="btn btn-primary" name="login">Login</button>
     </form>
 
 <?php require_once 'Templates/footer.php'; ?>

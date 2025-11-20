@@ -1,3 +1,14 @@
+<?php
+require_once 'D:/OneDrive/programieng/httdocs/lap2025/vendor/autoload.php';
+
+use Controller\AuthController;
+
+if (isset($_POST['logout'])) {
+    AuthController::logout();
+    header('Location: index.php');
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,6 +33,17 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="register.php">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <form action="" method="POST">
+                        <button class="nav-link" name="logout">Logout</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php">Admin</a>
                 </li>
 
             </ul>
