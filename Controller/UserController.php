@@ -2,8 +2,6 @@
 
 namespace Controller;
 
-require_once 'Requests/StoreUserRequest.php';
-require_once 'Model/User.php';
 
 
 use Requests\StoreUserRequest;

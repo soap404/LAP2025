@@ -1,6 +1,6 @@
 CREATE TABLE addresses
 (
-    id           INT PRIMARY KEY,
+    id           INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     user_id      INT,
     address      VARCHAR(255),
     zip          CHAR(4),

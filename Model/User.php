@@ -1,7 +1,6 @@
 <?php
 
 namespace Model;
-require_once 'DB.php';
 
 use PDO;
 
